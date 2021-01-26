@@ -11,7 +11,6 @@ export class Composer extends Component {
 
   _submitForm = (formData, actions) => {
     this._createPost(formData);
-    console.log({ formData });
     actions.resetForm();
   };
 

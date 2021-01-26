@@ -1,5 +1,5 @@
 // Core
-import { takeEvery, all, call } from 'redux-saga/effects';
+import { all, call } from 'redux-saga/effects';
 
 // Watchers
 import { watchPost } from '../../bus/posts/saga/watchers';
