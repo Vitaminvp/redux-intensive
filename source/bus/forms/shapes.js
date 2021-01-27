@@ -23,10 +23,10 @@ export const login = {
 
 export const signup = {
     shape: {
-        firstName: '',
-        lastName:  '',
-        email:     '',
-        password:  '',
+        firstName: 'Elon',
+        lastName:  'Mask',
+        email:     'elon@ukr.net',
+        password:  '12345',
         invite,
     },
     schema: object().shape({

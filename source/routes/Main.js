@@ -1,17 +1,36 @@
 // Core
 import React, { Component } from 'react';
+import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { hot } from 'react-hot-loader';
-
 // Pages
-import { Feed } from '../pages';
+import { Feed, Login, NewPassword, Profile, Signup } from '../pages';
+//Instruments
+import { book } from './book';
+
+const mapStateToProps = ({ auth }) => ({
+  isAuthenticated: auth.get('isAuthenticated'),
+});
 
 @hot(module)
+@withRouter
+@connect(mapStateToProps)
 export default class Main extends Component {
-    render() {
-        return (
-            <>
-                <Feed />
-            </>
-        );
-    }
+  render() {
+    const { isAuthenticated } = this.props;
+    return isAuthenticated ? (
+      <Switch>
+        <Route component={Feed} path={book.feed} />
+        <Route component={Profile} path={book.profile} />
+        <Route component={NewPassword} path={book.newPassword} />
+        <Redirect to={book.feed} />
+      </Switch>
+    ) : (
+      <Switch>
+        <Route component={Login} path={book.login} />
+        <Route component={Signup} path={book.signUp} />
+        <Redirect to={book.login} />
+      </Switch>
+    );
+  }
 }

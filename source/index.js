@@ -9,12 +9,12 @@ import './theme/init';
 import { store } from './init/store';
 
 // Intro
-import { App } from './navigation/App';
+import Main from './routes/Main';
 
 render(
   <Provider store={store}>
     <Router>
-      <App />
+      <Main />
     </Router>
   </Provider>,
   document.getElementById('app')
