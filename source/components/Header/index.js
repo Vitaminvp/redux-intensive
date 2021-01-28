@@ -9,8 +9,9 @@ import Styles from './styles.m.css';
 import { book } from '../../routes/book';
 import { mockedProfile } from '../../instruments/mockedData';
 
-const mapStateToProps = ({ auth }) => ({
+const mapStateToProps = ({ auth, profile }) => ({
   isAuthenticated: auth.get('isAuthenticated'),
+  profile,
 });
 
 @withRouter

@@ -15,9 +15,10 @@ import { Composer, Catcher, Post } from '../../components';
 // Actions
 import { postActions } from '../../bus/posts/actions';
 
-const mapStateToProps = ({ posts }) => {
+const mapStateToProps = ({ posts, profile }) => {
   return {
     posts,
+    profile,
   };
 };
 

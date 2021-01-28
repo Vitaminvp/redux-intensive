@@ -6,8 +6,8 @@ import { invite } from '../../API';
 
 export const login = {
     shape: {
-        email:    '',
-        password: '',
+        email:    'elon@ukr.net',
+        password: '12345',
         remember: false,
     },
     schema: object().shape({
