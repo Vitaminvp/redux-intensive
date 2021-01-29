@@ -13,6 +13,12 @@ export function* authenticate() {
     const response = yield apply(api, api.auth.authenticate);
     const { data: profile, message } = yield apply(response, response.json);
 
+    if (response.status === 401) {
+      yield apply(localStorage, localStorage.removeItem, ['token']);
+      yield apply(localStorage, localStorage.removeItem, ['remember']);
+      return;
+    }
+
     if (response.status !== 200) throw new Error(message);
 
     yield apply(localStorage, localStorage.setItem, ['token', profile.token]);
