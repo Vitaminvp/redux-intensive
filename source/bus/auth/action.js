@@ -12,6 +12,16 @@ export const authActions = {
       type: types.INITIALIZE,
     };
   },
+  logout: () => {
+    return {
+      type: types.LOGOUT,
+    };
+  },
+  logoutAsync: () => {
+    return {
+      type: types.LOGOUT_ASYNC,
+    };
+  },
   initializeAsync: () => {
     return {
       type: types.INITIALIZE_ASYNC,

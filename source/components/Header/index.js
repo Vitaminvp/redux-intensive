@@ -3,19 +3,27 @@ import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import cx from 'classnames';
-
 // Instruments
 import Styles from './styles.m.css';
 import { book } from '../../routes/book';
 import { mockedProfile } from '../../instruments/mockedData';
+// Actions
+import { authActions } from '../../bus/auth/action';
 
 const mapStateToProps = ({ auth, profile }) => ({
   isAuthenticated: auth.get('isAuthenticated'),
   profile,
 });
 
+const mapDispatchToProps = {
+  logoutAsync: authActions.logoutAsync,
+};
+
 @withRouter
-@connect(mapStateToProps)
+@connect(
+  mapStateToProps,
+  mapDispatchToProps
+)
 export class Header extends Component {
   static defaultProps = {
     // State

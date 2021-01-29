@@ -10,6 +10,9 @@ export const postActions = {
     type: types.CREATE_POST,
     payload: post,
   }),
+  clearPost: () => ({
+    type: types.CLEAR_POSTS,
+  }),
   fetchPostsAsync: () => ({
     type: types.FETCH_POSTS,
   }),

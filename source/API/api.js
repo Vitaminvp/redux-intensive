@@ -24,6 +24,14 @@ export const api = {
         body: JSON.stringify(credentials),
       });
     },
+    logout() {
+      return fetch(`${MAIN_URL}/user/logout`, {
+        method: 'GET',
+        headers: {
+          Authorization: this.token,
+        },
+      });
+    },
     authenticate() {
       return fetch(`${MAIN_URL}/user/login`, {
         method: 'POST',
@@ -36,7 +44,6 @@ export const api = {
   },
   post: {
     fetch() {
-      console.log("this.token", this.token)
       return fetch(`${MAIN_URL}/feed`, {
         method: 'GET',
         headers: {
