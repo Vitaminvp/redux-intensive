@@ -7,26 +7,23 @@ import { uiActions } from '../../../ui/action';
 import { profileActions } from '../../../profile/action';
 import { authActions } from '../../action';
 
-export function* login({ payload: credentials }) {
+export function* authenticate() {
   try {
     yield put(uiActions.startFetching());
-    const response = yield apply(api, api.auth.login, [credentials]);
+    const response = yield apply(api, api.auth.authenticate);
     const { data: profile, message } = yield apply(response, response.json);
 
     if (response.status !== 200) throw new Error(message);
 
     yield apply(localStorage, localStorage.setItem, ['token', profile.token]);
 
-    if (credentials.remember) {
-      yield apply(localStorage, localStorage.setItem, ['remember', true]);
-    }
-
     yield put(profileActions.fillProfile(profile));
 
     yield put(authActions.authenticate());
   } catch (err) {
-    yield put(uiActions.emitError(err, 'login worker'));
+    yield put(uiActions.emitError(err, 'authenticate worker'));
   } finally {
     yield put(uiActions.stopFetching());
+    yield put(authActions.initialize());
   }
 }

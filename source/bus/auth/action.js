@@ -7,6 +7,16 @@ export const authActions = {
       type: types.AUTHENTICATE,
     };
   },
+  initialize: () => {
+    return {
+      type: types.INITIALIZE,
+    };
+  },
+  initializeAsync: () => {
+    return {
+      type: types.INITIALIZE_ASYNC,
+    };
+  },
   signUpAsync: userData => {
     return {
       type: types.SIGN_UP_ASYNC,
@@ -17,6 +27,11 @@ export const authActions = {
     return {
       type: types.LOGIN_ASYNC,
       payload: credentials,
+    };
+  },
+  authenticateAsync: credentials => {
+    return {
+      type: types.AUTHENTICATE_ASYNC,
     };
   },
 };
