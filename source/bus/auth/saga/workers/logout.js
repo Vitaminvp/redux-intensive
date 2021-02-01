@@ -1,5 +1,6 @@
 // Core
 import { put, apply } from 'redux-saga/effects';
+import { actions } from 'react-redux-form';
 // Instruments
 import { api } from '../../../../API';
 // Actions
@@ -24,7 +25,7 @@ export function* logout() {
   } finally {
     yield apply(localStorage, localStorage.removeItem, ['token']);
     yield apply(localStorage, localStorage.removeItem, ['remember']);
-
+    yield put(actions.reset('forms.user'));
     yield put(usersActions.clearUsers());
     yield put(postActions.clearPost());
     yield put(profileActions.clearProfile());

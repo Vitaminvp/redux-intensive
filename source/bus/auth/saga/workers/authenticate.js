@@ -1,6 +1,6 @@
 // Core
+import { actions } from 'react-redux-form';
 import { put, apply } from 'redux-saga/effects';
-
 // Instruments
 import { api } from '../../../../API';
 import { uiActions } from '../../../ui/action';
@@ -24,7 +24,10 @@ export function* authenticate() {
     yield apply(localStorage, localStorage.setItem, ['token', profile.token]);
 
     yield put(profileActions.fillProfile(profile));
-
+    yield put(
+      actions.change('forms.user.profile.firstName', profile.firstName)
+    );
+    yield put(actions.change('forms.user.profile.lastName', profile.lastName));
     yield put(authActions.authenticate());
   } catch (err) {
     yield put(uiActions.emitError(err, 'authenticate worker'));

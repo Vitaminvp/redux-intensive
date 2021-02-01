@@ -89,5 +89,26 @@ export const api = {
         },
       });
     },
-  }
+  },
+  profile: {
+    updateProfile(profile) {
+      return fetch(`${MAIN_URL}/user`, {
+        method: 'PUT',
+        headers: {
+          Authorization: this.token,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(profile),
+      });
+    },
+    updateAvatar(avatarFormData) {
+      return fetch(`${MAIN_URL}/image`, {
+        method: 'POST',
+        headers: {
+          Authorization: this.token,
+        },
+        body: avatarFormData,
+      });
+    },
+  },
 };
