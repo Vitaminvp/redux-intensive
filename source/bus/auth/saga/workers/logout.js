@@ -7,6 +7,7 @@ import { uiActions } from '../../../ui/action';
 import { authActions } from '../../action';
 import { profileActions } from '../../../profile/action';
 import { postActions } from '../../../posts/actions';
+import { usersActions } from '../../../users/actions';
 
 export function* logout() {
   try {
@@ -24,6 +25,7 @@ export function* logout() {
     yield apply(localStorage, localStorage.removeItem, ['token']);
     yield apply(localStorage, localStorage.removeItem, ['remember']);
 
+    yield put(usersActions.clearUsers());
     yield put(postActions.clearPost());
     yield put(profileActions.clearProfile());
     yield put(authActions.logout());

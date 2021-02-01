@@ -10,9 +10,10 @@ import { mockedProfile } from '../../instruments/mockedData';
 // Actions
 import { authActions } from '../../bus/auth/action';
 
-const mapStateToProps = ({ auth, profile }) => ({
+const mapStateToProps = ({ auth, profile, ui }) => ({
   isAuthenticated: auth.get('isAuthenticated'),
   profile,
+  isOnline: ui.get('isOnline'),
 });
 
 const mapDispatchToProps = {
@@ -25,16 +26,6 @@ const mapDispatchToProps = {
   mapDispatchToProps
 )
 export class Header extends Component {
-  static defaultProps = {
-    // State
-    profile: mockedProfile,
-    isAuthenticated: true,
-    isOnline: false,
-
-    // Actions
-    logoutAsync: () => {},
-  };
-
   _getNav = () => {
     const { isAuthenticated, profile } = this.props;
 

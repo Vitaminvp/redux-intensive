@@ -10,6 +10,9 @@ import Public from './Public';
 import { authActions } from '../bus/auth/action';
 // Component
 import { Loading } from '../components/Loading';
+// WebSocket
+import { socket, joinSocketChannel } from '../init/socket';
+import { socketActions } from '../bus/socket/actions';
 
 const mapStateToProps = ({ auth }) => ({
   isAuthenticated: auth.get('isAuthenticated'),
@@ -18,6 +21,7 @@ const mapStateToProps = ({ auth }) => ({
 
 const mapDispatchToProps = {
   initializeAsync: authActions.initializeAsync,
+  ...socketActions,
 };
 
 @hot(module)
@@ -28,16 +32,24 @@ const mapDispatchToProps = {
 )
 export default class Main extends Component {
   componentDidMount() {
-    this.props.initializeAsync();
+    const { initializeAsync, listenConnections } = this.props;
+    initializeAsync();
+    joinSocketChannel();
+    listenConnections();
+  }
+
+  componentWillUnmount() {
+    socket.removeListener('connect');
+    socket.removeListener('disconnect');
   }
 
   render() {
-    const { isAuthenticated, isInitialized } = this.props;
+    const { isAuthenticated, isInitialized, listenPosts } = this.props;
 
     if (!isInitialized) {
       return <Loading />;
     }
 
-    return isAuthenticated ? <Private /> : <Public />;
+    return isAuthenticated ? <Private listenPosts={listenPosts} /> : <Public />;
   }
 }
