@@ -19,8 +19,10 @@
         "serve": "serve \"./build\" -s"
     },
     "dependencies": {
+        "@babel/polyfill": "^7.12.1",
         "classnames": "2.2.6",
         "connected-react-router": "4.5.0",
+        "core-js": "^2.5.7",
         "formik": "1.3.1",
         "gsap": "2.0.2",
         "history": "4.7.2",
@@ -47,7 +49,6 @@
         "@babel/plugin-proposal-class-properties": "7.3.0",
         "@babel/plugin-proposal-decorators": "7.3.0",
         "@babel/plugin-syntax-dynamic-import": "7.2.0",
-        "@babel/polyfill": "7.2.5",
         "@babel/preset-env": "7.3.1",
         "@babel/preset-react": "7.0.0",
         "@babel/register": "7.0.0",
