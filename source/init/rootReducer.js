@@ -8,6 +8,7 @@ import { authReducer as auth } from '../bus/auth/reducer';
 import { profileReducer as profile } from '../bus/profile/reducer';
 import { usersReducer as users } from '../bus/users/reducer';
 import { formReducer as forms } from '../bus/forms/reducer';
+import { notificationReducer as notifications } from '../bus/notification/reducer';
 
 export const rootReducer = combineReducers({
   posts,
@@ -16,4 +17,5 @@ export const rootReducer = combineReducers({
   profile,
   users,
   forms,
+  notifications,
 });

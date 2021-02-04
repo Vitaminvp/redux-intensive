@@ -7,6 +7,7 @@ import { api } from '../../../../API';
 import { uiActions } from '../../../ui/action';
 import { profileActions } from '../../../profile/action';
 import { authActions } from '../../action';
+import {notificationActions} from "../../../notification/action";
 
 export function* login({ payload: credentials }) {
   try {
@@ -28,8 +29,11 @@ export function* login({ payload: credentials }) {
     );
     yield put(actions.change('forms.user.profile.lastName', profile.lastName));
     yield put(authActions.authenticate());
+    yield put(notificationActions.showNotification('Good !!!'));
   } catch (err) {
     yield put(uiActions.emitError(err, 'login worker'));
+    yield put(notificationActions.showNotification('Bad !!!', 'error'));
+
   } finally {
     yield put(uiActions.stopFetching());
   }
