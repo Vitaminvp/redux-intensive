@@ -11,8 +11,8 @@ module.exports = {
     collectCoverage:     true,
     collectCoverageFrom: [
         '<rootDir>/source/bus/auth/**/*.{js,jsx}',
-        // '<rootDir>/source/bus/ui/**/*.{js,jsx}',
-        // '<rootDir>/source/bus/profile/**/*.{js,jsx}',
+        '<rootDir>/source/bus/ui/**/*.{js,jsx}',
+        '<rootDir>/source/bus/profile/**/*.{js,jsx}',
         '<rootDir>/source/bus/users/**/*.{js,jsx}',
         '<rootDir>/source/init/store.js',
         '<rootDir>/source/components/**/*.js',

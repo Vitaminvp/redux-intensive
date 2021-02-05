@@ -14,40 +14,55 @@ const errorMessage = 'TEST_ERROR_MESSAGE.';
 const error = new Error(errorMessage);
 
 const userProfile = {
-    id,
-    firstName,
-    lastName,
-    avatar,
-    token,
+  id,
+  firstName,
+  lastName,
+  avatar,
+  token,
 };
 
 const signupData = {
-    firstName,
-    lastName,
-    email,
-    password,
-    invite,
+  firstName,
+  lastName,
+  email,
+  password,
+  invite,
 };
 
 const credentials = {
-    email:    'test@email.com',
-    password: '1111',
-    remember: true,
+  email: 'test@email.com',
+  password: '1111',
+  remember: true,
 };
 
 const users = [{ ...userProfile }, { ...userProfile }, { ...userProfile }];
 
 const url = 'https://www.url.com';
 
+const newName = {
+  firstName: 'Walter',
+  lastName: 'White',
+};
+
+const newAvatar = ['avatar'];
+
+const newPassword = {
+  oldPassword: '12345',
+  newPassword: '123456',
+};
+
 global.testData = {
-    userProfile,
-    signupData,
-    errorMessage,
-    token,
-    error,
-    users,
-    credentials,
-    url,
+  userProfile,
+  signupData,
+  errorMessage,
+  token,
+  error,
+  users,
+  credentials,
+  url,
+  newName,
+  newAvatar,
+  newPassword,
 };
 global.fetch = fetch;
 global.localStorage = new LocalStorage();

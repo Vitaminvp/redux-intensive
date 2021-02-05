@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`profile actions: clearProfile 1`] = `
+Object {
+  "type": "CLEAR_PROFILE",
+}
+`;
+
+exports[`profile actions: fillProfile 1`] = `
+Object {
+  "payload": Object {
+    "avatar": "TEST_AVATAR",
+    "firstName": "TEST_FIRST_NAME",
+    "id": "TEST_ID",
+    "lastName": "TEST_LAST_NAME",
+    "token": "TEST_TOKEN",
+  },
+  "type": "FILL_PROFILE",
+}
+`;
+
+exports[`profile actions: updateAvatar 1`] = `
+Object {
+  "payload": "https://www.url.com",
+  "type": "UPDATE_AVATAR",
+}
+`;
+
+exports[`profile actions: updateAvatarAsync 1`] = `
+Object {
+  "payload": Array [
+    "avatar",
+  ],
+  "type": "UPDATE_AVATAR_ASYNC",
+}
+`;
+
+exports[`profile actions: updateNameAsync 1`] = `
+Object {
+  "payload": Object {
+    "firstName": "Walter",
+    "lastName": "White",
+  },
+  "type": "UPDATE_NAME_ASYNC",
+}
+`;
+
+exports[`profile actions: updatePasswordAsync 1`] = `
+Object {
+  "payload": Object {
+    "newPassword": "123456",
+    "oldPassword": "12345",
+  },
+  "type": "UPDATE_PASSWORD_ASYNC",
+}
+`;
+
+exports[`ui actions: setOfflineState 1`] = `
+Object {
+  "type": "SET_OFFLINE_STATE",
+}
+`;
+
+exports[`ui actions: setOnlineState 1`] = `
+Object {
+  "type": "SET_ONLINE_STATE",
+}
+`;
+
+exports[`ui actions: startFetching 1`] = `
+Object {
+  "type": "START_FETCHING",
+}
+`;
+
+exports[`ui actions: stopFetching 1`] = `
+Object {
+  "type": "STOP_FETCHING",
+}
+`;
+
+exports[`ui actions: updateNameAsync 1`] = `
+Object {
+  "error": true,
+  "meta": null,
+  "payload": [Error: TEST_ERROR_MESSAGE.],
+  "type": "EMIT_ERROR",
+}
+`;
