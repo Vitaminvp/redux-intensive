@@ -16,7 +16,7 @@ export function* fetchUsers() {
 
     yield put(usersActions.fillUsers(users));
   } catch (err) {
-    yield put(uiActions.emitError(err, 'fetchUsers worker '));
+    yield put(uiActions.emitError(err, 'fetchUsers worker'));
   } finally {
     yield put(uiActions.stopFetching());
   }
