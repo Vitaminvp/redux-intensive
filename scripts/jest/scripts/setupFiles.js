@@ -11,6 +11,7 @@ const email = 'TEST_EMAIL';
 const password = '12345';
 const invite = 'xy18273y4h';
 const errorMessage = 'TEST_ERROR_MESSAGE.';
+const successMessage = 'TEST_SUCCESS_MESSAGE.';
 const error = new Error(errorMessage);
 
 const userProfile = {
@@ -51,6 +52,30 @@ const newPassword = {
   newPassword: '123456',
 };
 
+const responseDataSuccess = {
+  data: userProfile,
+  message: successMessage,
+};
+
+const responseDataFail = {
+  message: errorMessage,
+};
+
+const fetchResponseSuccess = {
+  status: 200,
+  json: jest.fn(() => Promise.resolve(responseDataSuccess)),
+};
+
+const fetchResponseFail401 = {
+  status: 401,
+  json: jest.fn(() => Promise.resolve(responseDataFail)),
+};
+
+const fetchResponseFail400 = {
+  status: 400,
+  json: jest.fn(() => Promise.resolve(responseDataFail)),
+};
+
 global.testData = {
   userProfile,
   signupData,
@@ -63,6 +88,12 @@ global.testData = {
   newName,
   newAvatar,
   newPassword,
+  responseDataSuccess,
+  responseDataFail,
+  fetchResponseSuccess,
+  fetchResponseFail401,
+  fetchResponseFail400,
 };
+
 global.fetch = fetch;
 global.localStorage = new LocalStorage();

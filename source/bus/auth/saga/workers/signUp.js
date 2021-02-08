@@ -19,7 +19,7 @@ export function* signUp({ payload: userInfo }) {
 
     yield put(authActions.authenticate());
   } catch (err) {
-    yield put(uiActions.emitError(err, 'auth worker '));
+    yield put(uiActions.emitError(err, 'signUp worker'));
   } finally {
     yield put(uiActions.stopFetching());
   }
