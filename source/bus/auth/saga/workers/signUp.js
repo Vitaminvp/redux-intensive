@@ -1,5 +1,5 @@
 // Core
-import { put, apply, call } from 'redux-saga/effects';
+import { put, apply } from 'redux-saga/effects';
 
 // Instruments
 import { api } from '../../../../API';
